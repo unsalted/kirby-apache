@@ -22,6 +22,8 @@ RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && composer -v \
     && rm composer-setup.php
 
+RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> /${USER}/.bashrc
+
 # install kirby-cli
 RUN composer global require getkirby/cli
 
